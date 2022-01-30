@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+class time
+{
+	int h,m,s;	//can only be accessed by member functions
+	int sum();	//can only be called by other member functions
+	public:		//can be accessed by objects in the main function
+		void input();
+		void display();
+};
+//taking user input for time
+void time::input()
+{
+	cout<<"\n\n\tEnter time:\n\tHours?\t\t";
+	cin>>h;
+	cout<<"\tMinutes?\t";
+	cin>>m;
+	cout<<"\tSeconds?\t";
+	cin>>s;
+}
+//displaying formatted time and time in seconds
+void time::display()
+{
+	cout<<"\n\tThe time is = ";
+	cout<<(h<10?"0":"")<<h<<":";
+	cout<<(m<10?"0":"")<<m<<":";
+	cout<<(s<10?"0":"")<<s<<endl;
+	cout<<"\n\tTotal time in seconds: "<<sum()<<"\n\n";
+}
+//finds sum of time in seconds
+int time::sum()
+{
+	return ((h*3600)+(m*60)+s);
+}
+//main function to create objects of class and call public member functions
+int main()
+{
+	time obj;
+	obj.input();
+	obj.display();
+}
