@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+int Sum(int);		//function to find and print as sum of two prime numbers
+int isPrime(int);	//function to check whether input is prime or not
+
+int main()
+{
+	int n;
+	cout<<"Enter a positive integer: ";
+	cin>>n;
+	if(Sum(n))		//receives 1 if no sum is printed
+		cout<<n<<" cannot be printed as a sum of any two prime numbers.\n";
+}
+
+int Sum(int n)
+{
+	int i,f=1;				//flag initialised as 1 to check whether any sum printed or not
+	for(i=1;i<=n/2;i++)					//loop from 1 till half of input number
+		if(isPrime(i)&&isPrime(n-i))	//checks if first number is prime, and then if difference is prime
+		{
+			cout<<n<<" = "<<i<<" + "<<(n-i)<<endl;	//prints as sum of two prime numbers, i and n-i
+			f=0;									//for even just one sum printed, flag changed to 0
+		}
+	return f;	//returns 1 if no sum is printed
+}
+
+int isPrime(int x)
+{
+	int i,f=0;
+	for(i=2;i<=x/i;i++)		//checks for prime number until square root of x
+		if(!(x%i))	//if x is divisible by i
+			f=1;		
+	if(f)
+		return 0;	//is not a prime number
+	else
+		return 1;	//is a prime number
+}
