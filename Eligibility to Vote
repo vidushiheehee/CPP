@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int age;
+	cout<<"Enter prospective voter's age: ";
+	cin>>age;
+	if(age>=18)
+	{
+		int choice;
+		while(1)
+		{
+			cout<<"Enter their nationality:\n1. Indian\n2. Other\nEnter choice: ";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1:
+					cout<<"Eligible to vote.\n";
+					exit(0);
+					break;
+				case 2:
+					cout<<"Not eligible to vote.\n";
+					exit(0);
+					break;
+				default:
+					cout<<"Invalid input.\n";
+			}
+		}
+	}
+	else
+		cout<<"Not eligible to vote.\n";
+}
