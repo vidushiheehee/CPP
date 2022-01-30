@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int marks;
+	cout<<"Enter the marks of a student: ";
+	cin>>marks;
+	if(marks>100||marks<0)
+	{
+		cout<<"Invalid marks."<<endl;
+		exit(0);
+	}
+	char grade;
+	if(marks<=100&&marks>=85)
+		grade='A';
+	else if(marks>=70)
+		grade='B';
+	else if(marks>=55)
+		grade='C';
+	else if(marks>=30)
+		grade='D';
+	else
+		grade='F';
+	cout<<"Grade of student: "<<grade<<endl;
+}
